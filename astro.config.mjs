@@ -4,6 +4,10 @@ import { defineConfig } from 'astro/config';
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
-export default defineConfig({
-  integrations: [svelte()]
-});
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
+export default defineConfig( {
+  site: 'https://kevin-moreau.vercel.app',
+  integrations: [ svelte(), sitemap() ]
+} );
