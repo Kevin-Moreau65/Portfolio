@@ -11,6 +11,11 @@ import Title from "../components/title.svelte";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Bonjour et bienvenue sur mon CV interactif, je suis un développeur web / devops qui cherche a se lancer dans le freelance"
+    />
+    <meta name="robots" content="index, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Kévin Moreau</title>
   </head>
@@ -23,9 +28,9 @@ import Title from "../components/title.svelte";
         client:only
       />
       <section id="about">
-        <About client:only />
+        <About client:load />
       </section>
-      <Timeline client:load />
+      <Timeline client:visible />
       <Skills />
     </div>
     <div class="email"></div>
@@ -42,6 +47,9 @@ import Title from "../components/title.svelte";
       white 60%
     );
     --side-width: 75px;
+  }
+  :global(*) {
+    box-sizing: border-box;
   }
   .main {
     min-height: 150vh;
