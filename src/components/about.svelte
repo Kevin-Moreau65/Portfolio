@@ -16,7 +16,7 @@
 </script>
 
 <div class="main {hasMoved ? 'show' : ''}">
-  <h2>A propos de moi.</h2>
+  <h2 class="title-gradient">A propos de moi.</h2>
   <div class="img-quote">
     <div class="img-placeholder" />
     <p>
@@ -60,24 +60,14 @@
 </div>
 
 <style>
-  h2 {
-    font-size: 2.8em;
-    background: linear-gradient(
-      90deg,
-      rgba(19, 100, 209, 1) 0%,
-      rgba(19, 160, 209, 1) 35%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
   .techno {
-    color: rgba(19, 190, 209, 1);
+    color: var(--first-accent);
   }
   .link {
     all: unset;
     text-decoration: underline;
     cursor: pointer;
-    text-decoration-color: rgba(19, 160, 209, 1);
+    text-decoration-color: var(--first-accent);
   }
   .img-quote p {
     text-align: center;

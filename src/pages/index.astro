@@ -24,17 +24,21 @@ import Title from "../components/title.svelte";
     <title>Kévin Moreau</title>
   </head>
   <body>
+    <span
+      style="opacity: 1; user-select: none; position: absolute; top: -18px;"
+      class="this-is-for-google-ligthouse-lcp">Test</span
+    >
     <div class="contact"><Contact /></div>
     <div class="main">
       <Title
         title="Kévin Moreau."
         subtitle="Développeur fullstack web / DevOps"
-        client:only
+        client:load
       />
       <section id="about">
         <About client:load />
       </section>
-      <Timeline client:visible />
+      <Timeline client:load />
       <Skills />
     </div>
     <div class="email"></div>
@@ -43,17 +47,23 @@ import Title from "../components/title.svelte";
 
 <style>
   :root {
-    --accent: #1a69d1;
+    --first-accent: rgb(0, 191, 255);
     --accent-gradient: linear-gradient(
-      45deg,
-      var(--accent),
-      #19c2ec 50%,
-      white 60%
+      90deg,
+      rgba(19, 100, 209, 1) 0%,
+      rgba(19, 160, 209, 1) 35%
     );
     --side-width: 75px;
   }
   :global(*) {
     box-sizing: border-box;
+  }
+  :global(.title-gradient) {
+    font-size: 2.8em;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
   }
   .main {
     min-height: 150vh;

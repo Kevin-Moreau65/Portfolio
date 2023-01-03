@@ -18,7 +18,7 @@
 </script>
 
 <div id="timeline" class={visible ? "anim" : ""}>
-  <h2>Mon parcours</h2>
+  <h2 class="title-gradient">Mon parcours</h2>
   <div class="main">
     <div class="event">
       <h3>Oui</h3>
@@ -74,7 +74,7 @@
   #timeline {
     opacity: 0;
     transform: translateY(15px);
-    height: 500px;
+    height: auto;
     padding: 0 200px;
     width: 100%;
     margin: 0 200px;
@@ -88,17 +88,6 @@
     bottom: 0;
     left: 50%;
     margin-left: -3px;
-  }
-  h2 {
-    font-size: 2.8em;
-    background: linear-gradient(
-      90deg,
-      rgba(19, 100, 209, 1) 0%,
-      rgba(19, 160, 209, 1) 35%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: left;
   }
   .anim {
     animation: slide-from-bottom 2s ease-in 0s 1 normal both;
