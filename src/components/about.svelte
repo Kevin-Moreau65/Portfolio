@@ -17,7 +17,6 @@
     const addAnimation = (entries: IntersectionObserverEntry[]) => {
       if (!$isTimelineVisible)
         for (const entry of entries) {
-          console.log(entry.intersectionRatio, entry.isIntersecting);
           if (entry.intersectionRatio <= 0.3) {
             isTimelineVisible.set(true);
             observer.unobserve(div);

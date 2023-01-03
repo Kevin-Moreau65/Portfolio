@@ -1,8 +1,5 @@
 <script lang="ts">
   import { isTimelineVisible } from "../store";
-  $: {
-    console.log("timeline", $isTimelineVisible);
-  }
 </script>
 
 <div
