@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { isTimelineVisible } from "../store";
 
   let hasMoved = false;
   const animate = () => {
@@ -12,6 +13,21 @@
     if (!hasMoved) {
       window.addEventListener("scroll", animate);
     }
+    const div = document.querySelector("#about") as Element;
+    const addAnimation = (entries: IntersectionObserverEntry[]) => {
+      if (!$isTimelineVisible)
+        for (const entry of entries) {
+          console.log(entry.intersectionRatio, entry.isIntersecting);
+          if (entry.intersectionRatio <= 0.3) {
+            isTimelineVisible.set(true);
+            observer.unobserve(div);
+          }
+        }
+    };
+    const observer = new IntersectionObserver(addAnimation, {
+      threshold: 0.3,
+    });
+    observer.observe(div);
   });
 </script>
 

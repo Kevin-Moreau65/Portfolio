@@ -1,23 +1,15 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  let visible = false;
-  onMount(() => {
-    const div = document.querySelector("#timeline") as Element;
-    const addAnimation = (entries: IntersectionObserverEntry[]) => {
-      if (!visible)
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            visible = true;
-            observer.unobserve(div);
-          }
-        }
-    };
-    const observer = new IntersectionObserver(addAnimation, { threshold: 0.5 });
-    observer.observe(div);
-  });
+  import { isTimelineVisible } from "../store";
+  $: {
+    console.log("timeline", $isTimelineVisible);
+  }
 </script>
 
-<div id="timeline" class={visible ? "anim" : ""}>
+<div
+  id="timeline"
+  class={$isTimelineVisible ? "anim" : ""}
+  style="visibility: {$isTimelineVisible ? 'visible' : 'collapse'};"
+>
   <h2 class="title-gradient">Mon parcours</h2>
   <div class="main">
     <div class="event">

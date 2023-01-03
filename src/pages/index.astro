@@ -4,6 +4,7 @@ import Contact from "../components/contact.svelte";
 import Skills from "../components/skills.svelte";
 import Timeline from "../components/timeline.svelte";
 import Title from "../components/title.svelte";
+let showTimeline = false;
 ---
 
 <!DOCTYPE html>
@@ -21,7 +22,9 @@ import Title from "../components/title.svelte";
     />
     <meta name="robots" content="index, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Kévin Moreau - Développeur fullstack web - DevOps</title>
+    <title>
+      {showTimeline} Kévin Moreau - Développeur fullstack web - DevOps
+    </title>
   </head>
   <body>
     <span
