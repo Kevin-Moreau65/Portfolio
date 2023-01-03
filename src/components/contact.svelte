@@ -80,7 +80,7 @@
     flex-direction: column;
     align-items: center;
     transform: translateY(50px);
-    opacity: 0;
+    opacity: 0.01;
     animation: slide-from-bottom 1.3s linear 3.3s 1 normal forwards;
   }
   ul::after {

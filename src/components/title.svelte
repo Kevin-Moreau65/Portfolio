@@ -36,7 +36,7 @@
 
 <style>
   h1 span {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(-250px);
     animation: slide-from-top 1.5s ease 1s 1 normal forwards;
   }
