@@ -15,6 +15,9 @@
     if (!hasMoved) {
       window.addEventListener("scroll", animate);
     }
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
   });
 </script>
 

@@ -51,10 +51,16 @@ let showTimeline = false;
 <style>
   :root {
     --first-accent: rgb(0, 191, 255);
-    --accent-gradient: linear-gradient(
+    --second-accent: rgba(19, 190, 209, 1);
+    --accent-gradient-35: linear-gradient(
       90deg,
       rgba(19, 100, 209, 1) 0%,
       rgba(19, 160, 209, 1) 35%
+    );
+    --accent-gradient-100: linear-gradient(
+      90deg,
+      rgba(19, 100, 209, 1) 0%,
+      rgba(19, 160, 209, 1) 100%
     );
     --side-width: 75px;
   }
@@ -63,7 +69,7 @@ let showTimeline = false;
   }
   :global(.title-gradient) {
     font-size: 2.8em;
-    background: var(--accent-gradient);
+    background: var(--accent-gradient-35);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: left;

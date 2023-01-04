@@ -1,5 +1,26 @@
 <script lang="ts">
   import { isTimelineVisible } from "../store";
+  import { events, tags } from "../content/timeline.json";
+  const parseText = (text: string) => {
+    let odd = false;
+    for (const tag of tags) {
+      text =
+        (text.includes(tag.name) && parse(text, tag.name, tag.style)) || text;
+    }
+    return text;
+  };
+  const parse = (text: string, tag: string, style: string) => {
+    let odd = false;
+    const parsedLocation = text.split(tag);
+    const mutatedLocation = parsedLocation.map((text) => {
+      if (odd) {
+        text = `<span style="${style}"> ${text} </span>`;
+      }
+      odd = !odd;
+      return text;
+    });
+    return mutatedLocation.join("");
+  };
 </script>
 
 <div
@@ -9,44 +30,16 @@
 >
   <h2 class="title-gradient">Mon parcours</h2>
   <div class="main">
-    <div class="event">
-      <h3>Oui</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        eget lacus fringilla, aliquam libero non, efficitur dolor. Morbi
-        ultrices mauris vitae leo ullamcorper sodales. Curabitur ut venenatis
-        ex, elementum pulvinar ligula. Praesent vehicula ipsum vitae gravida
-        interdum. Donec ut urna augue. Duis rhoncus augue in quam aliquam, vitae
-        molestie metus pulvinar. In nec volutpat nisl, id venenatis enim.
-        Praesent vitae lorem nec nulla iaculis commodo. Nulla semper neque et
-        enim pulvinar, id congue urna pellentesque. Sed eros lacus, fermentum
-        non dictum ut, tincidunt quis ex. Sed convallis mi vitae leo accumsan
-        pellentesque. Ut ex nulla, maximus eu dictum nec, pharetra eget dui.
-        Nullam maximus efficitur diam, non scelerisque diam placerat vel.
-        Aliquam erat volutpat. Praesent ac ligula laoreet, interdum risus ut,
-        ultricies orci. Fusce nisl tortor, sagittis ac augue vitae, dapibus
-        eleifend magna.
-      </p>
-    </div>
-    <div class="event">
-      <h3>Oui</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        eget lacus fringilla, aliquam libero non, efficitur dolor. Morbi
-        ultrices mauris vitae leo ullamcorper sodales. Curabitur ut venenatis
-        ex, elementum pulvinar ligula. Praesent vehicula ipsum vitae gravida
-        interdum. Donec ut urna augue. Duis rhoncus augue in quam aliquam, vitae
-        molestie metus pulvinar. In nec volutpat nisl, id venenatis enim.
-        Praesent vitae lorem nec nulla iaculis commodo. Nulla semper neque et
-        enim pulvinar, id congue urna pellentesque. Sed eros lacus, fermentum
-        non dictum ut, tincidunt quis ex. Sed convallis mi vitae leo accumsan
-        pellentesque. Ut ex nulla, maximus eu dictum nec, pharetra eget dui.
-        Nullam maximus efficitur diam, non scelerisque diam placerat vel.
-        Aliquam erat volutpat. Praesent ac ligula laoreet, interdum risus ut,
-        ultricies orci. Fusce nisl tortor, sagittis ac augue vitae, dapibus
-        eleifend magna.
-      </p>
-    </div>
+    {#each events as event}
+      <div class="event">
+        <h3 class="title-event">
+          <span>{event.title}</span><span>{event.date}</span>
+        </h3>
+        <p class="description">
+          {@html parseText(event.description)}
+        </p>
+      </div>
+    {/each}
   </div>
 </div>
 
@@ -82,12 +75,14 @@
     animation: slide-from-bottom 2s ease-in 0s 1 normal both;
   }
   .event {
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.159);
     border-radius: 12px;
     padding: 0 15px;
   }
-  .event h3 {
-    color: rgba(19, 190, 209, 1);
+  .event h3 span {
+    background: var(--accent-gradient-100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .event:nth-child(odd) {
     float: left;
@@ -96,5 +91,12 @@
   .event:nth-child(even) {
     float: right;
     margin-left: 53%;
+  }
+  .title-event {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title-event span {
+    text-align: center;
   }
 </style>
