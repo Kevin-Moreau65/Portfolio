@@ -4,7 +4,6 @@ import Contact from "../components/contact.svelte";
 import Skills from "../components/skills.svelte";
 import Timeline from "../components/timeline.svelte";
 import Title from "../components/title.svelte";
-let showTimeline = false;
 ---
 
 <!DOCTYPE html>
@@ -22,16 +21,14 @@ let showTimeline = false;
     />
     <meta name="robots" content="index, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>
-      {showTimeline} Kévin Moreau - Développeur fullstack web - DevOps
-    </title>
+    <title>Kévin Moreau - Développeur fullstack web - DevOps</title>
   </head>
   <body>
     <span
       style="opacity: 1; user-select: none; position: absolute; top: -18px;"
       class="this-is-for-google-ligthouse-lcp">Test</span
     >
-    <div class="contact"><Contact client:load /></div>
+    <div class="contact"><Contact /></div>
     <div class="main">
       <Title
         title="Kévin Moreau."
