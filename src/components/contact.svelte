@@ -7,7 +7,7 @@
 
 <ul>
   <li>
-    <a href="/#" on:click={copyEmail}>
+    <a href="/#" on:click={copyEmail} title="mail">
       <svg
         fill="white"
         height="35px"
