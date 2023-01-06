@@ -1,9 +1,9 @@
 ---
 import About from "../components/about.svelte";
-import Contact from "../components/contact.svelte";
+import Contact from "../components/Contact.astro";
 import Skills from "../components/skills.svelte";
-import Timeline from "../components/timeline.svelte";
-import Title from "../components/title.svelte";
+import Timeline from "../components/Timeline.astro";
+import Title from "../components/Title.astro";
 ---
 
 <!DOCTYPE html>
@@ -33,12 +33,11 @@ import Title from "../components/title.svelte";
       <Title
         title="Kévin Moreau."
         subtitle="Développeur fullstack web / DevOps"
-        client:load
       />
       <section id="about">
         <About client:load />
       </section>
-      <Timeline client:load />
+      <Timeline />
       <Skills />
     </div>
     <div class="email"></div>

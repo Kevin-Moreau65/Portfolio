@@ -1,0 +1,110 @@
+---
+import { events, tags } from "../content/timeline.json";
+const parseText = (text: string) => {
+  let odd = false;
+  for (const tag of tags) {
+    text =
+      (text.includes(tag.name) && parse(text, tag.name, tag.style)) || text;
+  }
+  return text;
+};
+const parse = (text: string, tag: string, style: string) => {
+  let odd = false;
+  const parsedLocation = text.split(tag);
+  const mutatedLocation = parsedLocation.map((text) => {
+    if (odd) {
+      text = `<span style="${style}"> ${text} </span>`;
+    }
+    odd = !odd;
+    return text;
+  });
+  return mutatedLocation.join("");
+};
+---
+
+<script>
+  import { isTimelineVisible } from "../store";
+  let div = document.getElementById("timeline");
+  isTimelineVisible.listen((isVisible) => {
+    if (isVisible) {
+      div?.classList.add("anim");
+    }
+  });
+</script>
+<div id="timeline" style="visibility: collapse;">
+  <h2 class="title-gradient">Mon parcours</h2>
+  <div class="main">
+    {
+      events.map((ev) => (
+        <div class="event">
+          <h3 class="title-event">
+            <span>{ev.title}</span>
+            <span>{ev.date}</span>
+          </h3>
+          <p class="description" set:html={parseText(ev.description)} />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  @keyframes slide-from-bottom-timeline {
+    0% {
+      visibility: visible;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+  .anim {
+    animation: slide-from-bottom-timeline 2s ease-in 0s 1 normal forwards;
+  }
+  #timeline {
+    opacity: 0;
+    transform: translateY(15px);
+    height: auto;
+    padding: 0 200px;
+    width: 100%;
+    margin: 0 200px;
+    visibility: collapse;
+  }
+  .main::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    background-color: white;
+    top: 8em;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  .event {
+    background-color: rgba(128, 128, 128, 0.159);
+    border-radius: 12px;
+    padding: 0 15px;
+  }
+  .event h3 span {
+    background: var(--accent-gradient-100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .event:nth-child(odd) {
+    float: left;
+    margin-right: 53%;
+  }
+  .event:nth-child(even) {
+    float: right;
+    margin-left: 53%;
+  }
+  .title-event {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title-event span {
+    text-align: center;
+  }
+</style>

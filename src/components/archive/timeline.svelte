@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { isTimelineVisible } from "../store";
-  import { events, tags } from "../content/timeline.json";
+  import { isTimelineVisible } from "../../store";
+  import { events, tags } from "../../content/timeline.json";
   const parseText = (text: string) => {
     let odd = false;
     for (const tag of tags) {
