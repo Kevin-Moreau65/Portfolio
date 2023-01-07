@@ -1,28 +1,30 @@
 <script>
+  const mail = document.querySelector("li.mail") as Element;
   const copyEmail = async () => {
     await navigator.clipboard.writeText("kevin.moreau655@gmail.com");
-    alert("kevin.moreau655@gmail.com copié dans votre presse papier !");
+    const tip = document.querySelector(".tips-email") as Element;
+    tip.innerHTML = "Copié !";
+    setTimeout(() => {
+      tip.innerHTML = "Copier l'adresse mail";
+    }, 3000);
   };
-  document.querySelector("a.mail")?.addEventListener("click", copyEmail);
+  mail.addEventListener("click", copyEmail);
 </script>
 
 <ul>
-  <li>
-    <a href="/#" title="mail" class="mail">
-      <svg
-        height="35px"
-        width="35px"
-        version="1.1"
-        id="Layer_1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 64 64"
-        enable-background="new 0 0 32 32"
-        xml:space="preserve"
-      >
-        <path
-          id="Mail"
-          d="M58.0034485,8H5.9965506c-3.3136795,0-5.9999995,2.6862001-5.9999995,6v36c0,3.3137016,2.6863203,6,5.9999995,6
+  <li class="mail">
+    <svg
+      version="1.1"
+      id="Layer_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 64 64"
+      enable-background="new 0 0 32 32"
+      xml:space="preserve"
+    >
+      <path
+        id="Mail"
+        d="M58.0034485,8H5.9965506c-3.3136795,0-5.9999995,2.6862001-5.9999995,6v36c0,3.3137016,2.6863203,6,5.9999995,6
 	h52.006897c3.3137016,0,6-2.6862984,6-6V14C64.0034485,10.6862001,61.3171501,8,58.0034485,8z M62.0034485,49.1108017
 	L43.084549,30.1919994l18.9188995-12.0555992V49.1108017z M5.9965506,10h52.006897c2.2056007,0,4,1.7943001,4,4v1.7664003
 	L34.4677505,33.3134003c-1.4902,0.9492989-3.3935013,0.9199982-4.8495998-0.0703011L1.9965508,14.4694996V14
@@ -30,21 +32,20 @@
 	 M58.0034485,54H5.9965506c-1.6473999,0-3.0638998-1.0021019-3.6760998-2.4278984l20.5199013-20.5200024l5.6547985,3.843401
 	c1.0859013,0.7383003,2.3418007,1.1083984,3.5995998,1.1083984c1.1953011,0,2.3925018-0.3339996,3.4463005-1.0048981
 	l5.8423996-3.7230015l20.2961006,20.2961025C61.0673485,52.9978981,59.6508713,54,58.0034485,54z"
-        ></path>
-      </svg>
-    </a>
+      ></path>
+    </svg>
+    <span class="tips-email">Copier l'adresse mail</span>
   </li>
   <li>
     <a
       href="https://github.com/Kevin-Moreau65"
       target="_blank"
       title="Mon Github"
-      ><svg
+    >
+      <svg
         enable-background="new 0 0 32 32"
-        height="35px"
         version="1.1"
         viewBox="0 0 32 32"
-        width="35px"
         xml:space="preserve"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -69,8 +70,8 @@
             ></g
           ></g
         ></svg
-      ></a
-    >
+      >
+    </a>
   </li>
   <li>
     <a href="/" target="_blank" title="Mon linkedIn">
@@ -106,6 +107,36 @@
 </ul>
 
 <style>
+  .tips-email {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.412);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 140%;
+    transition-duration: 0.3s;
+  }
+
+  .tips-email::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+
+  li:hover .tips-email {
+    visibility: visible;
+    transform: translateY(-10px);
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -138,10 +169,13 @@
   svg {
     transition-duration: 0.3s;
     fill: white;
+    width: 35px;
+    aspect-ratio: 1/1;
   }
   li:hover svg {
     transform: scale(1.2) translateY(-6px);
     fill: url("#grad-blue");
+    cursor: pointer;
   }
   @keyframes slide-from-bottom-contact {
     100% {
