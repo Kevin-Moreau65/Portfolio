@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { isTimelineVisible } from "../store";
+  import { isTimelineVisible } from "../../store";
 
   let hasMoved = false;
   const animate = () => {
