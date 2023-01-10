@@ -23,15 +23,17 @@ const parse = (text: string, tag: string, style: string) => {
 ---
 
 <script>
-  import { isTimelineVisible } from "../store";
-  let div = document.getElementById("timeline");
+  import showElementOnScroll from "../utils/showElementOnScroll";
+  import { isProjectsVisible, isTimelineVisible } from "../utils/store";
+  let div = document.querySelector("#timeline") as Element;
   isTimelineVisible.listen((isVisible) => {
     if (isVisible) {
-      div?.classList.add("anim");
+      div.classList.add("anim");
     }
   });
+  showElementOnScroll(isProjectsVisible, div, 0.3);
 </script>
-<div id="timeline" style="visibility: collapse;">
+<div id="timeline">
   <h2 class="title-gradient">Mon parcours</h2>
   <div class="main">
     {
@@ -70,7 +72,7 @@ const parse = (text: string, tag: string, style: string) => {
     padding: 0 200px;
     width: 100%;
     margin: 0 200px;
-    visibility: collapse;
+    visibility: hidden;
   }
   .main::after {
     content: "";

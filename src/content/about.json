@@ -1,0 +1,13 @@
+{
+    "text": {
+        "main": "Bonjour ! Je m'appelle Kévin Moreau, j'ai 20 ans et j'habite actuellement à Pau.    Mon interêt pour l'informatique s'est manifesté depuis l'enfance a jouer et réparer    le PC familial. C'est depuis la 3ème, lors d'un enseignement d'exploration que    je decide de m'orienter vers \"Création et Innovation Technologiques\", que je    découvre l'univers du web avec <span class=\"techno\">HTML</span>    et    <span class=\"techno\">CSS</span>. Même si c'était tout simple j'ai vraiment    aimé l'aspect \"voir ce qu'il se passe de l'autre coté\" de tout les grand    sites que nous visitons. Force de ma curiosité et après un BAC scientifique    je décide de me lancer en tant qu'alternant développeur informatique au    <a href=\"https://www.cesi.fr\" target=\"_blank\" class=\"link\">CESI</a>    de Pau. Je fini par etre alternant DevOps à    <a href=\"https://www.inetum.com/fr\" target=\"_blank\" class=\"link\">Inetum</a>    en mars 2021, sois 5 mois après le début de mon alternance (octobre 2020) pour    cause de difficulté a trouver une entreprise du au COVID. D'octobre a mars j'avais    donc beaucoup de temps libre et je décide d'apprendre de nouvel technologie web    ! J'ai donc appris    <span class=\"techno\">JQuery</span>,    <span class=\"techno\">PHP</span>    et linux pour le développement web. Par la suite j'ai pu notamment découvrir    <span class=\"techno\">Javascript</span>,    <span class=\"techno\">Typescript</span>,    <span class=\"techno\">AstroJs</span> et <span class=\"techno\">SvelteKit</span>    (et bien d'autre !) qui m'ont aidé a faire ce site.",
+        "currently": "currently"
+    },
+    "picture": {
+        "path": "path",
+        "quote": {
+            "text": "text",
+            "author": "author"
+        }
+    }
+}

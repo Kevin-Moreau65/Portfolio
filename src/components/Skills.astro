@@ -1,0 +1,41 @@
+<script>
+  import { isSkillsVisible } from "../utils/store";
+
+  const div = document.querySelector("#skills") as Element;
+  isSkillsVisible.listen((isVisible) => {
+    if (isVisible) {
+      div.classList.add("anim");
+    }
+  });
+</script>
+<div id="skills">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<style>
+  @keyframes slide-from-bottom-skills {
+    0% {
+      visibility: visible;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+  .anim {
+    animation: slide-from-bottom-skills 2s ease-in 0s 1 normal forwards;
+  }
+  #skills {
+    opacity: 0;
+    transform: translateY(15px);
+    height: auto;
+    padding: 0 200px;
+    width: 100%;
+    margin: 0 200px;
+    visibility: hidden;
+  }
+</style>

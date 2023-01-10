@@ -1,5 +1,6 @@
 <script>
-  import { isTimelineVisible } from "../store";
+  import showElementOnScroll from "../utils/showElementOnScroll";
+  import { isTimelineVisible } from "../utils/store";
   const div = document.querySelector("#about") as Element;
   const animate = () => {
     if (document.documentElement.scrollTop >= 70) {
@@ -8,20 +9,21 @@
     }
   };
   window.addEventListener("scroll", animate);
-  const addAnimation = (entries: IntersectionObserverEntry[]) => {
-    let isVisible = isTimelineVisible.get();
-    if (!isVisible)
-      for (const entry of entries) {
-        if (entry.intersectionRatio <= 0.3) {
-          isTimelineVisible.set(true);
-          observer.unobserve(div);
-        }
-      }
-  };
-  const observer = new IntersectionObserver(addAnimation, {
-    threshold: 0.3,
-  });
-  observer.observe(div);
+  showElementOnScroll(isTimelineVisible, div, 0.3);
+  // const addAnimation = (entries: IntersectionObserverEntry[]) => {
+  //   let isVisible = isTimelineVisible.get();
+  //   if (!isVisible)
+  //     for (const entry of entries) {
+  //       if (entry.intersectionRatio <= 0.3) {
+  //         isTimelineVisible.set(true);
+  //         observer.unobserve(div);
+  //       }
+  //     }
+  // };
+  // const observer = new IntersectionObserver(addAnimation, {
+  //   threshold: 0.3,
+  // });
+  // observer.observe(div);
 </script>
 
 <div class="main" id="about">
