@@ -11,7 +11,6 @@ const showElementOnScroll = (
         const bcr = entry.boundingClientRect;
         const isBottomVisible = bcr.bottom < window.innerHeight;
         if (entry.intersectionRatio <= threshold && isBottomVisible) {
-          console.log(entry.intersectionRatio, div);
           isVisible.set(true);
           observer.unobserve(div);
         }

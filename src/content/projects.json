@@ -1,0 +1,34 @@
+{
+    "projects": [
+        {
+            "title": "Pokemon swiss knife",
+            "description": "Un site pour connaitre rapidement les forces et les faiblesses des types pokémons.",
+            "lastSentence": "Cela m'a permis de découvrir svelteKit",
+            "preview": "/pokemon-swiss-knife-preview.png",
+            "links": {
+                "github": "https://github.com/Kevin-Moreau65/pokemon-swiss-knife",
+                "website": "https://pokemon-swiss-knife.vercel.app"
+            }
+        },
+        {
+            "title": "Next-film",
+            "description": "Un site qui récapitule les films / séries vu avec ma copine, avec des statistiques et du responsive design ! ",
+            "lastSentence": "Initialement écrit avec Jquery je voulais tester l'approche SSR avec NextJS",
+            "preview": "/next-film-preview.png",
+            "links": {
+                "github": "https://github.com/Kevin-Moreau65/NextFilm",
+                "website": "https://next-film.vercel.app/"
+            }
+        },
+        {
+            "title": "Portfolio",
+            "description": "Un site qui me présente et récapitule mes projets et mes expériences.",
+            "lastSentence": "Il est écrit avec astro ! Un framework optimisé pour les sites statique.",
+            "preview": "/portfolio-preview.png",
+            "links": {
+                "github": "https://github.com/Kevin-Moreau65/Portfolio",
+                "website": "https://kevin-moreau.vercel.app/"
+            }
+        }
+    ]
+}

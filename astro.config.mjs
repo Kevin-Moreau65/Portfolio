@@ -7,7 +7,12 @@ import svelte from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import image from "@astrojs/image";
+
+// https://astro.build/config
 export default defineConfig( {
   site: 'https://kevin-moreau.vercel.app',
-  integrations: [ svelte(), sitemap() ]
+  integrations: [ svelte(), sitemap(), image( {
+    serviceEntryPoint: '@astrojs/image/sharp'
+  } ) ]
 } );
