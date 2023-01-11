@@ -1,3 +1,8 @@
+---
+import { skills } from "../content/skills.json";
+import { Image } from "@astrojs/image/components";
+---
+
 <script>
   import { isSkillsVisible } from "../utils/store";
 
@@ -11,9 +16,22 @@
 </script>
 <div id="skills">
   <h2 class="title-gradient">Mes compétences</h2>
-  <div></div>
-  <div></div>
-  <div></div>
+  <div class="wrapper">
+    {
+      skills.map((categories) => (
+        <div class="categories">
+          <h3>{categories.title}</h3>
+          <div class="container">
+            {categories.content.map((skill) => (
+              <div class="img-placeholder">
+                <img src={skill.img} alt={skill.alt} />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </div>
 
 <style>
@@ -39,5 +57,47 @@
     width: 100%;
     margin: 0 200px;
     visibility: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .categories {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    border: solid 1px aqua;
+    border-radius: 12px;
+    padding: 10px 0 20px 0;
+    margin: 20px 0;
+  }
+  .img-placeholder {
+    width: 80;
+    height: 80px;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  .img-placeholder:hover {
+    transform: scale(1.1);
+  }
+  .img-placeholder:active {
+    transform: scale(0.9);
+  }
+  .img-placeholder img {
+    width: 100%;
+    height: 100%;
   }
 </style>

@@ -4,8 +4,100 @@
             "title": "Langages",
             "content": [
                 {
-                    "img": "img",
-                    "alt": "alt"
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+                    "alt": "html"
+                },
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+                    "alt": "CSS"
+                },
+                {
+                    "img": "/php.svg",
+                    "alt": "php"
+                },
+                {
+                    "img": "/python.svg",
+                    "alt": "python"
+                },
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+                    "alt": "javascript"
+                },
+                {
+                    "img": "/typescript.svg",
+                    "alt": "typescript"
+                }
+            ]
+        },
+        {
+            "title": "Framework & Librairies web",
+            "content": [
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+                    "alt": "NodeJS"
+                },
+                {
+                    "img": "https://www.nextontop.com/assets/img/services/web/expressjs.svg",
+                    "alt": "ExpressJS"
+                },
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg",
+                    "alt": "Svelte"
+                },
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+                    "alt": "React"
+                },
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/JQuery-Logo.svg",
+                    "alt": "Jquery"
+                }
+            ]
+        },
+        {
+            "title": "Meta-frameworks",
+            "content": [
+                {
+                    "img": "/sveltekit.svg",
+                    "alt": "SvelteKit"
+                },
+                {
+                    "img": "/astrojs.svg",
+                    "alt": "Astro"
+                },
+                {
+                    "img": "/nextjs.svg",
+                    "alt": "NextJs"
+                }
+            ]
+        },
+        {
+            "title": "Certifications",
+            "content": [
+                {
+                    "img": "https://www.soat.fr/assets/images/certifications/AZ900.png",
+                    "alt": "AZ 900"
+                },
+                {
+                    "img": "https://images.credly.com/images/107e2eb6-f394-40eb-83d2-d8c9b7d34555/exam-az400-600x600.png",
+                    "alt": "AZ 400"
+                }
+            ]
+        },
+        {
+            "title": "Cloud",
+            "content": [
+                {
+                    "img": "/docker.svg",
+                    "alt": "docker"
+                },
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/6/67/Kubernetes_logo.svg",
+                    "alt": "kubernetes"
+                },
+                {
+                    "img": "https://www.svgrepo.com/show/303372/azure-1-logo.svg",
+                    "alt": "azure"
                 }
             ]
         }
