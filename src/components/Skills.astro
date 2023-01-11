@@ -4,11 +4,13 @@
   const div = document.querySelector("#skills") as Element;
   isSkillsVisible.listen((isVisible) => {
     if (isVisible) {
+      console.log("yo");
       div.classList.add("anim");
     }
   });
 </script>
 <div id="skills">
+  <h2 class="title-gradient">Mes compétences</h2>
   <div></div>
   <div></div>
   <div></div>
@@ -32,7 +34,7 @@
   #skills {
     opacity: 0;
     transform: translateY(15px);
-    height: auto;
+    height: 700px;
     padding: 0 200px;
     width: 100%;
     margin: 0 200px;

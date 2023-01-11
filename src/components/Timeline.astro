@@ -25,7 +25,7 @@ const parse = (text: string, tag: string, style: string) => {
 <script>
   import showElementOnScroll from "../utils/showElementOnScroll";
   import { isProjectsVisible, isTimelineVisible } from "../utils/store";
-  let div = document.querySelector("#timeline") as Element;
+  const div = document.querySelector("#timeline") as Element;
   isTimelineVisible.listen((isVisible) => {
     if (isVisible) {
       div.classList.add("anim");

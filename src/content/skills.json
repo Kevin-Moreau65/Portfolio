@@ -1,0 +1,13 @@
+{
+    "skills": [
+        {
+            "title": "Langages",
+            "content": [
+                {
+                    "img": "img",
+                    "alt": "alt"
+                }
+            ]
+        }
+    ]
+}

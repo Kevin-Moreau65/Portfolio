@@ -4,13 +4,15 @@ import { projects } from "../content/projects.json";
 ---
 
 <script>
-  import { isProjectsVisible } from "../utils/store";
+  import showElementOnScroll from "../utils/showElementOnScroll";
+  import { isProjectsVisible, isSkillsVisible } from "../utils/store";
   const div = document.querySelector("#projects") as Element;
   isProjectsVisible.listen((isVisible) => {
     if (isVisible) {
       div.classList.add("anim");
     }
   });
+  showElementOnScroll(isSkillsVisible, div, 0.3);
 </script>
 <div id="projects">
   <h2 class="title-gradient">Projets</h2>
@@ -115,7 +117,6 @@ import { projects } from "../content/projects.json";
   #projects {
     width: 100%;
     padding: 0 200px;
-    padding-bottom: 200px;
     visibility: hidden;
     opacity: 0;
     transform: translateY(15px);
