@@ -12,8 +12,8 @@
         },
         {
             "title": "Next-film",
-            "description": "Un site qui récapitule les films / séries vu avec ma copine, avec des statistiques et du responsive design ! ",
-            "lastSentence": "Initialement écrit avec Jquery je voulais tester l'approche SSR avec NextJS",
+            "description": "Un site qui récapitule les films / séries vu, avec statistiques et responsive design !",
+            "lastSentence": "Je voulais tester l'approche SSR avec NextJS",
             "preview": "/next-film-preview.png",
             "links": {
                 "github": "https://github.com/Kevin-Moreau65/NextFilm",
@@ -23,7 +23,7 @@
         {
             "title": "Portfolio",
             "description": "Un site qui me présente et récapitule mes projets et mes expériences.",
-            "lastSentence": "Il est écrit avec astro ! Un framework optimisé pour les sites statique.",
+            "lastSentence": "Il est écrit avec astro !",
             "preview": "/portfolio-preview.png",
             "links": {
                 "github": "https://github.com/Kevin-Moreau65/Portfolio",

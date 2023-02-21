@@ -29,17 +29,14 @@ import Projects from "../components/Projects.astro";
       style="opacity: 1; user-select: none; position: absolute; top: -18px;"
       class="this-is-for-google-ligthouse-lcp">Test</span
     >
-    <div class="contact"><Contact /></div>
+    <Contact />
     <div class="main">
       <Title />
-      <section id="section-about">
-        <About />
-      </section>
+      <About />
       <Timeline />
       <Projects />
       <Skills />
     </div>
-    <div class="email"></div>
   </body>
 </html>
 
@@ -58,57 +55,55 @@ import Projects from "../components/Projects.astro";
       rgba(19, 160, 209, 1) 100%
     );
     --side-width: 75px;
+    --font-size-gradient: 2.8em;
+    --text-font-size: 1.3em;
+    --quote-font-size: 1em;
   }
   :global(*) {
     box-sizing: border-box;
   }
+  @media screen and (max-width: 1000px) {
+    :root {
+      --font-size-gradient: 2em;
+      --text-font-size: 1em;
+      --quote-font-size: 0.6em;
+    }
+    :global(.title-gradient) {
+      text-align: center !important;
+    }
+  }
   :global(.title-gradient) {
-    font-size: 2.8em;
+    font-size: var(--font-size-gradient);
     background: var(--accent-gradient-35);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: left;
   }
   .main {
-    min-height: 150vh;
-    flex: 1;
-    margin: 0 var(--side-width);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
   body {
     display: flex;
     flex-direction: row;
     justify-content: center;
     color: white;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
   }
   body::-webkit-scrollbar {
     display: none;
   }
 
-  .contact,
-  .email {
-    width: var(--side-width);
-    min-height: 100vh;
-    position: fixed;
-  }
-  .contact {
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-  .email {
-    right: 0;
-    top: 0;
-  }
-  body {
-    margin: 0;
-  }
   html {
     font-family: system-ui, sans-serif;
     background-color: #2f5172;
+    width: 100%;
+    margin: 0;
+    min-height: 100vh;
   }
 </style>

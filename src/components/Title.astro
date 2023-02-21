@@ -48,7 +48,7 @@ let titleArray: string[] = title.split("");
   h1 {
     display: flex;
     text-align: left;
-    font-size: 4em;
+    font-size: clamp(1.5em, 5vw, 4em);
     justify-content: center;
     margin: 0;
   }
@@ -57,6 +57,7 @@ let titleArray: string[] = title.split("");
     opacity: 0;
     transform: translateX(-50px);
     text-align: center;
+    font-size: clamp(0.5em, 1.6vw, 3em);
     margin: 0;
   }
   div {

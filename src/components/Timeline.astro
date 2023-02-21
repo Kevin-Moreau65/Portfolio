@@ -69,9 +69,8 @@ const parse = (text: string, tag: string, style: string) => {
     opacity: 0;
     transform: translateY(15px);
     height: auto;
-    padding: 0 200px;
+    padding: 0 5%;
     width: 100%;
-    margin: 0 200px;
     visibility: hidden;
   }
   .main::after {
@@ -108,5 +107,26 @@ const parse = (text: string, tag: string, style: string) => {
   }
   .title-event span {
     text-align: center;
+  }
+  .description {
+    font-size: var(--text-font-size);
+  }
+  @media screen and (max-width: 1000px) {
+    .main::after {
+      content: "";
+      position: absolute;
+      left: 4%;
+      top: 6em;
+    }
+    .event:nth-child(odd) {
+      float: right;
+      margin: 10px 0 10px 15px;
+      width: 100%;
+    }
+    .event:nth-child(even) {
+      float: right;
+      margin: 10px 0 10px 15px;
+      width: 100%;
+    }
   }
 </style>

@@ -5,7 +5,7 @@
             "content": [
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
-                    "alt": "html"
+                    "alt": "Html"
                 },
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
@@ -13,24 +13,24 @@
                 },
                 {
                     "img": "/php.svg",
-                    "alt": "php"
+                    "alt": "Php"
                 },
                 {
                     "img": "/python.svg",
-                    "alt": "python"
+                    "alt": "Python"
                 },
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-                    "alt": "javascript"
+                    "alt": "Javascript"
                 },
                 {
                     "img": "/typescript.svg",
-                    "alt": "typescript"
+                    "alt": "Typescript"
                 }
             ]
         },
         {
-            "title": "Framework & Librairies web",
+            "title": "Frameworks & Librairies web",
             "content": [
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
@@ -89,15 +89,15 @@
             "content": [
                 {
                     "img": "/docker.svg",
-                    "alt": "docker"
+                    "alt": "Docker"
                 },
                 {
                     "img": "https://upload.wikimedia.org/wikipedia/commons/6/67/Kubernetes_logo.svg",
-                    "alt": "kubernetes"
+                    "alt": "Kubernetes"
                 },
                 {
                     "img": "https://www.svgrepo.com/show/303372/azure-1-logo.svg",
-                    "alt": "azure"
+                    "alt": "Azure"
                 }
             ]
         }

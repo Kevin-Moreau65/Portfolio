@@ -10,20 +10,6 @@
   };
   window.addEventListener("scroll", animate);
   showElementOnScroll(isTimelineVisible, div, 0.3);
-  // const addAnimation = (entries: IntersectionObserverEntry[]) => {
-  //   let isVisible = isTimelineVisible.get();
-  //   if (!isVisible)
-  //     for (const entry of entries) {
-  //       if (entry.intersectionRatio <= 0.3) {
-  //         isTimelineVisible.set(true);
-  //         observer.unobserve(div);
-  //       }
-  //     }
-  // };
-  // const observer = new IntersectionObserver(addAnimation, {
-  //   threshold: 0.3,
-  // });
-  // observer.observe(div);
 </script>
 
 <div class="main" id="about">
@@ -71,6 +57,17 @@
 </div>
 
 <style>
+  h2 {
+    display: initial;
+  }
+  @media screen and (max-width: 1000px) {
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: justify;
+    }
+  }
   .techno {
     color: var(--first-accent);
   }
@@ -82,17 +79,18 @@
   }
   .img-quote p {
     text-align: center;
-    font-size: 0.9em;
+    font-size: var(--quote-font-size);
   }
   .main-text,
   .currently {
-    font-size: 1.3em;
+    font-size: var(--text-font-size);
   }
-  .main {
+  #about {
     visibility: hidden;
     opacity: 0;
+    width: 100%;
     transform: translateY(15px);
-    padding: 0 200px;
+    padding: 0 5%;
   }
   .quote {
     font-style: italic;
@@ -102,13 +100,20 @@
     float: right;
     width: 200px;
     margin: 0 10px;
-    transform: translateY(-60px);
   }
   .img-placeholder {
     aspect-ratio: 1/1;
     width: inherit;
-    background-color: white;
+    background-image: url("/myself.jpg");
+    background-size: cover;
     border-radius: 50%;
+
+    filter: grayscale(1);
+    transition: all 0.3s;
+  }
+  .img-placeholder:hover {
+    filter: grayscale(0);
+    transform: scale(1.01);
   }
   @keyframes slide-from-bottom-about {
     0% {
