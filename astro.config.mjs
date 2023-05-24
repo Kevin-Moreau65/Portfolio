@@ -13,7 +13,9 @@ import image from "@astrojs/image";
 export default defineConfig( {
   site: 'https://kevin-moreau.vercel.app',
   output: 'static',
-  adapter: vercelStatic(),
+  adapter: vercelStatic( {
+    analytics: true
+  } ),
   integrations: [ sitemap(), image( {
     serviceEntryPoint: '@astrojs/image/sharp'
   } ) ]
