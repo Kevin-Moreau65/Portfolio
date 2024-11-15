@@ -10,6 +10,15 @@
   };
   window.addEventListener("scroll", animate);
   showElementOnScroll(isTimelineVisible, div, 0.3);
+  const calculateAge = (birthday: number) => {
+    const ageDifMs = Date.now() - birthday;
+   const ageDate = new Date(ageDifMs); 
+   return Math.abs(ageDate.getUTCFullYear() - 1970);
+ }
+ const age = calculateAge(new Date("08/08/2002").valueOf())
+ const span = document.getElementById("age")
+ if (span !== null)
+ span.innerHTML = age.toString()
 </script>
 
 <div class="main" id="about">
@@ -24,7 +33,7 @@
     </p>
   </div>
   <p class="main-text">
-    J'ai 20 ans et j'habite actuellement à Pau. Mon intérêt pour l'informatique
+    J'ai <span id="age"></span> ans et j'habite actuellement à Pau. Mon intérêt pour l'informatique
     s'est manifesté depuis l'enfance à jouer et réparer le PC familial. C'est
     depuis la 3ème, lors d'un enseignement d'exploration que je decide de
     m'orienter vers "Création et innovation technologiques", que je découvre
