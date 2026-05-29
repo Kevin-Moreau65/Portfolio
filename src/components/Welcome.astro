@@ -1,14 +1,11 @@
 ---
-import { getLocale } from "astro-i18n-aut";
+import customGetLocale from "../i18n/get-locale";
 import Layout from "../layouts/Layout.astro";
 
-const locale = getLocale(Astro.url);
+const locale = customGetLocale(Astro.url);
 
 let title: string;
 switch (locale) {
-  case "es":
-    title = "¡Hola Mundo!";
-    break;
   case "fr":
     title = "Bonjour Monde!";
     break;
