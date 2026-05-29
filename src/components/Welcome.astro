@@ -1,19 +1,11 @@
 ---
+import geti18nContent from "../i18n/get-content";
 import customGetLocale from "../i18n/get-locale";
 import Layout from "../layouts/Layout.astro";
 
-const locale = customGetLocale(Astro.url);
-
-let title: string;
-switch (locale) {
-  case "fr":
-    title = "Bonjour Monde!";
-    break;
-  default:
-    title = "Hello World!";
-}
+const locale = geti18nContent("index", Astro.url);
 ---
 
-<Layout title={title}>
-  <h1>{title}</h1>
+<Layout title={locale.test}>
+  <h1>{locale.test}</h1>
 </Layout>
