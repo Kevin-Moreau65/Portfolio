@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio",
+  "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -17,5 +17,6 @@
     "astro": "^6.4.2",
     "astro-i18n-aut": "^0.7.3",
     "tailwindcss": "^4.3.0"
-  }
+  },
+  "packageManager": "pnpm@10.13.1"
 }
