@@ -1,18 +1,34 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
-
-// https://astro.build/config
-import svelte from "@astrojs/svelte";
-
-// https://astro.build/config
+import tailwindcss from "@tailwindcss/vite";
+import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import sitemap from "@astrojs/sitemap";
-
-// https://astro.build/config
-import image from "@astrojs/image";
-
+const defaultLocale = "en";
+const locales = {
+    en: "en-US", // the `defaultLocale` value must present in `locales` keys
+    fr: "fr-CA",
+};
 // https://astro.build/config
 export default defineConfig( {
-  site: 'https://kevin-moreau.vercel.app',
-  integrations: [ svelte(), sitemap(), image( {
-    serviceEntryPoint: '@astrojs/image/sharp'
-  } ) ]
+    site: "https://kevin-moreau.dev/",
+    trailingSlash: "never",
+    build: {
+        format: "file",
+    },
+    integrations: [
+        i18n( {
+            locales,
+            defaultLocale,
+        } ),
+        sitemap( {
+            i18n: {
+                locales,
+                defaultLocale,
+            },
+            filter: filterSitemapByDefaultLocale( { defaultLocale } ),
+        } ),
+    ],
+    vite: {
+        plugins: [ tailwindcss() ],
+    },
 } );

@@ -1,0 +1,22 @@
+---
+import { getLocale } from "astro-i18n-aut";
+import Layout from "../layouts/Layout.astro";
+
+const locale = getLocale(Astro.url);
+
+let title: string;
+switch (locale) {
+  case "es":
+    title = "¡Hola Mundo!";
+    break;
+  case "fr":
+    title = "Bonjour Monde!";
+    break;
+  default:
+    title = "Hello World!";
+}
+---
+
+<Layout title={title}>
+  <h1>{title}</h1>
+</Layout>

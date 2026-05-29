@@ -1,7 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "exclude": ["./dist/**"],
-  "compilerOptions": {
-    "resolveJsonModule": true
-  }
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
