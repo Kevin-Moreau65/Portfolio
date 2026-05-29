@@ -1,1 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
 @import "tailwindcss";
+@theme {
+  --font-big-title: "Syne", "sans-serif";
+  --color-light-blue: oklch(0.9243 0.1257 227);
+}

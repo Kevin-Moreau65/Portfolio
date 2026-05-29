@@ -1,16 +1,18 @@
 ---
+import customGetLocale from "../i18n/get-locale";
 import "../styles/global.css";
+const localeLanguage = customGetLocale(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={localeLanguage}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Kévin Moreau</title>
   </head>
   <body>
     <slot />
