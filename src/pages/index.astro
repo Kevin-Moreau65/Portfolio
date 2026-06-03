@@ -6,9 +6,45 @@ const locale = geti18nContent("index", Astro.url);
 ---
 
 <Layout
-  ><div class="w-full h-full bg-light-blue flex items-center justify-center">
-    <div class="font-big-title font-bold bg-red-300 p-2 border-4 rounded-sm">
-      <h1 class="text-9xl">Kévin Moreau</h1>
+  ><div class="w-full h-full flex items-start justify-center">
+    <div class="max-w-9xl w-9/10 md:w-3/4 island p-4">
+      <div class="w-full profile-card">
+        <h1
+          style="grid-area: title;"
+          class="text-center font-big-title text-5xl font-bold"
+        >
+          Kévin Moreau
+        </h1>
+        <div
+          class="w-full island aspect-3/4 flex items-center justify-center bg-gray-50"
+          style="grid-area: picture;"
+        >
+          Picture
+        </div>
+        <p style="grid-area: quotation;" class="quotation font-semibold">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut
+          eleifend augue. Nullam lacus sem.
+        </p>
+        <div style="grid-area: tags;" class="flex felx-col flex-wrap gap-2">
+          <div class="tag purple">Fullstack Developer</div>
+          <div class="tag blue">DevOps</div>
+          <div class="tag red">Tech Entusiast</div>
+        </div>
+        <p style="grid-area: description;">
+          Mauris varius est sit amet urna faucibus blandit. Class aptent taciti
+          sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos. Maecenas ut ullamcorper sapien, at venenatis justo. Sed
+          sodales accumsan est, ut molestie libero blandit congue. Aenean eget
+          dapibus ipsum. Duis semper malesuada velit, eu auctor arcu hendrerit
+          a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+          a odio ac odio gravida porta eu eget ante. Aenean interdum eget dui
+          vehicula luctus. Proin non ultrices nunc. Nulla congue magna at
+          lacinia interdum. Integer venenatis dolor ut sem ultrices, vitae
+          bibendum urna consequat. Proin turpis ipsum, ullamcorper ac
+          condimentum vel, pretium ac nunc. Nulla nec mauris dolor. Aenean
+          commodo leo eu scelerisque interdum.
+        </p>
+      </div>
     </div>
   </div>
 </Layout>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  content: string;
+  active?: boolean;
+}
+const { content, active = false } = Astro.props;
+const buildClassName = () => {
+  let className = ["button"];
+  if (active) className.push("active");
+  return className.join(" ");
+};
+---
+
+<button class={buildClassName()}>{content}</button>

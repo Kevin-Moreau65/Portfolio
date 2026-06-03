@@ -2,5 +2,54 @@
 @import "tailwindcss";
 @theme {
   --font-big-title: "Syne", "sans-serif";
-  --color-light-blue: oklch(0.9243 0.1257 227);
+  --color-light-blue: oklch(0.9214 0.1299 236);
+  --color-header: oklch(0.5445 0.1161 182.14);
+}
+@layer components {
+  .button {
+    @apply bg-white border-2 rounded-2xl p-2 cursor-pointer;
+    &:not(.active) {
+      @apply shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] hover:-translate-1 hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,0.5)] duration-100 active:translate-0.75 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,0.5)];
+    }
+    &.active {
+      @apply bg-gray-300;
+    }
+  }
+  .island {
+    @apply bg-white border-4 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,0.2)];
+  }
+  .tag {
+    @apply bg-white border-3 pt-1 pb-1 pl-2 pr-2 rounded-3xl shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] font-semibold;
+    &.purple {
+      @apply bg-purple-300;
+    }
+    &.blue {
+      @apply bg-blue-200;
+    }
+    &.red {
+      @apply bg-red-200;
+    }
+  }
+  .profile-card {
+    @apply grid grid-rows-[auto_auto_auto_minmax(1fr,_400px)_auto] gap-2;
+    grid-template-areas:
+      "title"
+      "quotation"
+      "tags"
+      "picture"
+      "description";
+  }
+  @media (width >= 48rem) {
+    .profile-card {
+      @apply grid grid-cols-[1fr_1fr_1fr_1fr_1fr_minmax(200px,_1fr)] gap-2;
+      grid-template-areas:
+        "title title title title title picture"
+        "quotation quotation quotation quotation quotation picture"
+        "tags tags tags tags tags picture"
+        "description description description description description picture";
+    }
+  }
+  .quotation {
+    @apply italic;
+  }
 }
