@@ -1,48 +1,54 @@
 ---
+import { locales } from "astro:schema";
 import geti18nContent from "../i18n/get-content";
 import Layout from "../layouts/Layout.astro";
+import face from "../assets/goat.png";
+import { Image } from "astro:assets";
 
 const locale = geti18nContent("index", Astro.url);
 ---
 
 <Layout
   ><div class="w-full h-full flex items-start justify-center">
-    <div class="max-w-9xl w-9/10 md:w-3/4 island p-4">
+    <div class="max-w-7xl w-9/10 md:w-3/4 island p-4">
       <div class="w-full profile-card">
         <h1
           style="grid-area: title;"
-          class="text-center font-big-title text-5xl font-bold"
+          class="text-center font-title text-5xl font-bold"
         >
           Kévin Moreau
         </h1>
         <div
-          class="w-full island aspect-3/4 flex items-center justify-center bg-gray-50"
+          class="w-full island aspect-3/4 flex items-center justify-center bg-gray-50 overflow-hidden relative group"
           style="grid-area: picture;"
         >
-          Picture
+          <Image
+            src={face}
+            alt={locale.alts.face}
+            style="transition: scale 2s, filter 0.2s;"
+            class="w-full h-full grayscale-100 group-hover:grayscale-0 group-hover:scale-105 ease-in-out"
+          />
+          <div
+            class="absolute w-full h-full bg-light-blue/30 group-hover:opacity-0 duration-200"
+          >
+          </div>
         </div>
         <p style="grid-area: quotation;" class="quotation font-semibold">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut
-          eleifend augue. Nullam lacus sem.
+          {locale.quotation}
         </p>
         <div style="grid-area: tags;" class="flex felx-col flex-wrap gap-2">
-          <div class="tag purple">Fullstack Developer</div>
-          <div class="tag blue">DevOps</div>
-          <div class="tag red">Tech Entusiast</div>
+          <div class="tag purple">{locale.tags.devFullstack}</div>
+          <div class="tag blue">{locale.tags.devops}</div>
+          <div class="tag red">{locale.tags.techEntusiast}</div>
         </div>
-        <p style="grid-area: description;">
-          Mauris varius est sit amet urna faucibus blandit. Class aptent taciti
-          sociosqu ad litora torquent per conubia nostra, per inceptos
-          himenaeos. Maecenas ut ullamcorper sapien, at venenatis justo. Sed
-          sodales accumsan est, ut molestie libero blandit congue. Aenean eget
-          dapibus ipsum. Duis semper malesuada velit, eu auctor arcu hendrerit
-          a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          a odio ac odio gravida porta eu eget ante. Aenean interdum eget dui
-          vehicula luctus. Proin non ultrices nunc. Nulla congue magna at
-          lacinia interdum. Integer venenatis dolor ut sem ultrices, vitae
-          bibendum urna consequat. Proin turpis ipsum, ullamcorper ac
-          condimentum vel, pretium ac nunc. Nulla nec mauris dolor. Aenean
-          commodo leo eu scelerisque interdum.
+        <h2
+          style="grid-area: description-title;"
+          class="font-title text-3xl font-bold"
+        >
+          {locale.titles.whoAmI}
+        </h2>
+        <p style="grid-area: description-content;">
+          {locale.description}
         </p>
       </div>
     </div>

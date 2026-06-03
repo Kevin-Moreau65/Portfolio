@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
 @import "tailwindcss";
 @theme {
-  --font-big-title: "Syne", "sans-serif";
+  --font-title: "Syne", "sans-serif";
   --color-light-blue: oklch(0.9214 0.1299 236);
   --color-header: oklch(0.5445 0.1161 182.14);
 }
@@ -31,22 +31,25 @@
     }
   }
   .profile-card {
-    @apply grid grid-rows-[auto_auto_auto_minmax(1fr,_400px)_auto] gap-2;
+    @apply grid grid-rows-[auto_auto_auto_minmax(1fr,400px)_auto_auto] gap-2;
     grid-template-areas:
       "title"
       "quotation"
       "tags"
+      "description-title"
       "picture"
-      "description";
+      "description-content";
   }
   @media (width >= 48rem) {
     .profile-card {
-      @apply grid grid-cols-[1fr_1fr_1fr_1fr_1fr_minmax(200px,_1fr)] gap-2;
+      @apply grid grid-cols-[1fr_1fr_1fr_1fr_1fr_minmax(200px,1fr)] gap-2;
       grid-template-areas:
         "title title title title title picture"
         "quotation quotation quotation quotation quotation picture"
         "tags tags tags tags tags picture"
-        "description description description description description picture";
+        ". . . . . picture"
+        "description-title description-title description-title description-title description-title picture"
+        "description-content description-content description-content description-content description-content description-content";
     }
   }
   .quotation {

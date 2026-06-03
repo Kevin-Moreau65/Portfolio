@@ -5,5 +5,5 @@ export const locales = {
   fr: "fr-CA",
 } as const satisfies Record<string, string>;
 export type LocaleKeys = keyof typeof locales;
-export const defaultLocale: keyof typeof locales = "en";
+export const defaultLocale = "en" as const satisfies keyof typeof locales;
 export type LocaleContent<T extends {}> = { [x in LocaleKeys]: T };

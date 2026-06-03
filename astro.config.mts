@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss, { type PluginOptions } from "@tailwindcss/vite";
 import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
