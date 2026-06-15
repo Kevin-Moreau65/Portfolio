@@ -1,10 +1,21 @@
 ---
+import type { url } from "astro:schema";
 import Button from "./Button.astro";
 ---
 
 <nav class="w-full p-4 bg-header border-b-4">
   <ul class="flex flex-row gap-2">
-    <li><Button content="Test normal" /></li>
-    <li><Button content="Test active" active /></li>
+    <li>
+      <a href="/">
+        <Button content="Home" active={Astro.url.pathname === "/"} />
+      </a>
+    </li>
+    <li>
+      <a href="/projects">
+        <Button
+          content="Projects"
+          active={Astro.url.pathname === "/projects"}
+        /></a>
+    </li>
   </ul>
 </nav>
