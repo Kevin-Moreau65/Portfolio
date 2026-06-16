@@ -6,7 +6,6 @@ import { defaultLocale, locales } from "./src/i18n/config/locales";
 import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kevin-moreau.dev/",
   trailingSlash: "never",
 
   build: {
