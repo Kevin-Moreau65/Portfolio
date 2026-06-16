@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import face from "../assets/goat.png";
 import { Image } from "astro:assets";
 
-const locale = geti18nContent("index", Astro.url);
+const locale = geti18nContent.page("index", Astro.url);
 ---
 
 <Layout

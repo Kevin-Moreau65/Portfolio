@@ -1,20 +1,27 @@
 ---
+import { locales } from "astro:schema";
+import geti18nContent from "../i18n/get-content";
 import Button from "./Button.astro";
+const locale = geti18nContent.component("header", Astro.url);
 ---
 
 <nav class="w-full p-4 bg-header border-b-4">
   <ul class="flex flex-row gap-2">
     <li>
       <a href="/">
-        <Button content="Home" active={Astro.url.pathname === "/"} />
+        <Button
+          content={locale.home.text}
+          active={Astro.url.pathname === "/"}
+        />
       </a>
     </li>
     <li>
       <a href="/projects">
         <Button
-          content="Projects"
+          content={locale.projects.text}
           active={Astro.url.pathname === "/projects"}
-        /></a>
+        /></a
+      >
     </li>
   </ul>
 </nav>

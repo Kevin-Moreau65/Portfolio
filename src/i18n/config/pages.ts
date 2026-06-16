@@ -1,2 +1,2 @@
-const pages = ["index"] as const satisfies string[];
+const pages = ["index", "projects"] as const satisfies string[];
 export type Pages = (typeof pages)[number];
