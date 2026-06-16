@@ -3,13 +3,16 @@ import tailwindcss, { type PluginOptions } from "@tailwindcss/vite";
 import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import sitemap from "@astrojs/sitemap";
 import { defaultLocale, locales } from "./src/i18n/config/locales";
+import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kevin-moreau.dev/",
   trailingSlash: "never",
+
   build: {
     format: "file",
   },
+
   integrations: [
     i18n({
       locales,
@@ -23,7 +26,10 @@ export default defineConfig({
       filter: filterSitemapByDefaultLocale({ defaultLocale }),
     }),
   ],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 });

@@ -1,0 +1,13 @@
+---
+import External from "../assets/icons/external.icon.svg";
+import Code from "../assets/icons/code.icon.svg";
+export const Icons = { External, Code };
+interface Props {
+  name: keyof typeof Icons;
+}
+const { name } = Astro.props;
+
+const IconToRender = Icons[name];
+---
+
+<IconToRender class="w-full h-full" />
