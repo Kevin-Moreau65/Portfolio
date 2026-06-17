@@ -1,74 +1,41 @@
 import type { LocaleContent } from "../../config/locales";
-
-type i18nContent = {
-  tags: {
-    devops: string;
-    devFullstack: string;
-    techEntusiast: string;
-  };
-  quotation: string;
+type Project = {
+  name: string;
+  picture: string;
   description: string;
-  titles: {
-    whoAmI: string;
-  };
-  alts: {
-    face: string;
+  access?: string;
+  sourceCode: string;
+};
+type i18nContent = {
+  projects: {
+    coupleFilms: Project;
+    // PokemonSwissKnife: Project;
+    // Portfolio: Project;
+    // INRSWebSite: Project;
   };
 };
 
 const localeContentProjectsPage = {
   en: {
-    tags: {
-      devops: "DevOps",
-      devFullstack: "Fullstack developer",
-      techEntusiast: "Tech entusiast",
-    },
-    description: `Mauris varius est sit amet urna faucibus blandit. Class aptent taciti
-          sociosqu ad litora torquent per conubia nostra, per inceptos
-          himenaeos. Maecenas ut ullamcorper sapien, at venenatis justo. Sed
-          sodales accumsan est, ut molestie libero blandit congue. Aenean eget
-          dapibus ipsum. Duis semper malesuada velit, eu auctor arcu hendrerit
-          a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          a odio ac odio gravida porta eu eget ante. Aenean interdum eget dui
-          vehicula luctus. Proin non ultrices nunc. Nulla congue magna at
-          lacinia interdum. Integer venenatis dolor ut sem ultrices, vitae
-          bibendum urna consequat. Proin turpis ipsum, ullamcorper ac
-          condimentum vel, pretium ac nunc. Nulla nec mauris dolor. Aenean
-          commodo leo eu scelerisque interdum.`,
-    quotation: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut
-          eleifend augue. Nullam lacus sem.`,
-    titles: {
-      whoAmI: "Who am I ?",
-    },
-    alts: {
-      face: "Me",
+    projects: {
+      coupleFilms: {
+        name: "Movies of us",
+        description:
+          "Simple website to track movies and series seen with my girlfriend (stats included !).",
+        picture: "",
+        sourceCode: "https://github.com/Kevin-Moreau65/NextFilm",
+      },
     },
   },
   fr: {
-    tags: {
-      devops: "DevOps",
-      devFullstack: "Développeur fullstack",
-      techEntusiast: "Curieux de la tech",
-    },
-    description: `Mauris varius est sit amet urna faucibus blandit. Class aptent taciti
-          sociosqu ad litora torquent per conubia nostra, per inceptos
-          himenaeos. Maecenas ut ullamcorper sapien, at venenatis justo. Sed
-          sodales accumsan est, ut molestie libero blandit congue. Aenean eget
-          dapibus ipsum. Duis semper malesuada velit, eu auctor arcu hendrerit
-          a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          a odio ac odio gravida porta eu eget ante. Aenean interdum eget dui
-          vehicula luctus. Proin non ultrices nunc. Nulla congue magna at
-          lacinia interdum. Integer venenatis dolor ut sem ultrices, vitae
-          bibendum urna consequat. Proin turpis ipsum, ullamcorper ac
-          condimentum vel, pretium ac nunc. Nulla nec mauris dolor. Aenean
-          commodo leo eu scelerisque interdum.`,
-    quotation: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut
-          eleifend augue. Nullam lacus sem.`,
-    titles: {
-      whoAmI: "Qui suis-je ?",
-    },
-    alts: {
-      face: "Moi",
+    projects: {
+      coupleFilms: {
+        name: "Date films",
+        description:
+          "Site trackant les films et séries vu avec ma copine (incluaént des stats !).",
+        picture: "",
+        sourceCode: "https://github.com/Kevin-Moreau65/NextFilm",
+      },
     },
   },
 } as const satisfies LocaleContent<i18nContent>;

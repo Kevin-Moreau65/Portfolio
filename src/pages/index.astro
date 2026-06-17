@@ -8,9 +8,9 @@ import { Image } from "astro:assets";
 const locale = geti18nContent.page("index", Astro.url);
 ---
 
-<Layout
-  ><div class="w-full h-full flex items-start justify-center">
-    <div class="max-w-7xl w-9/10 md:w-3/4 island p-4">
+<Layout>
+  <div class="w-full flex justify-center">
+    <div class="w-full md:w-3/4 island p-4">
       <div class="w-full profile-card">
         <h1
           style="grid-area: title;"

@@ -14,21 +14,21 @@ type i18nContent = {
 const localeContentHeaderComponent = {
   en: {
     home: {
-      href: "/",
+      href: "/index.html",
       text: "Home",
     },
     projects: {
-      href: "/projects",
+      href: "/projects.html",
       text: "Projects",
     },
   },
   fr: {
     home: {
-      href: "/fr",
+      href: "/fr.html",
       text: "Acceuil",
     },
     projects: {
-      href: "/fr/projects",
+      href: "/fr/projects.html",
       text: "Projets",
     },
   },

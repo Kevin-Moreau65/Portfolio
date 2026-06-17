@@ -5,21 +5,22 @@ import Button from "./Button.astro";
 const locale = geti18nContent.component("header", Astro.url);
 ---
 
-<nav class="w-full p-4 bg-header border-b-4">
+<nav class="w-full p-4 bg-header border-b-4 h-min">
   <ul class="flex flex-row gap-2">
     <li>
-      <a href="/">
+      <a href={locale.home.href}>
         <Button
           content={locale.home.text}
-          active={Astro.url.pathname === "/"}
+          active={!Astro.url.pathname.endsWith(".html") ||
+            Astro.url.pathname.endsWith(locale.home.href)}
         />
       </a>
     </li>
     <li>
-      <a href="/projects">
+      <a href={locale.projects.href}>
         <Button
           content={locale.projects.text}
-          active={Astro.url.pathname === "/projects"}
+          active={Astro.url.pathname.endsWith("projects.html")}
         /></a
       >
     </li>

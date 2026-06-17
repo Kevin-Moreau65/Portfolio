@@ -15,9 +15,15 @@ const localeLanguage = customGetLocale(Astro.url);
     <meta name="generator" content={Astro.generator} />
     <title>Kévin Moreau</title>
   </head>
-  <body class="flex flex-col gap-4 bg-light-blue">
+  <body
+    class="grid grid-rows-[auto_1fr] h-full bg-light-blue max-h-full overflow-hidden"
+  >
     <Header />
-    <slot />
+    <div class="flex justify-center pt-4 w-full overflow-auto">
+      <div class="pl-4 pr-4 w-full max-w-360">
+        <slot />
+      </div>
+    </div>
   </body>
 </html>
 

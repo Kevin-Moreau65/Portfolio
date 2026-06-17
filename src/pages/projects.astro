@@ -1,26 +1,31 @@
 ---
 import Button from "../components/Button.astro";
+import geti18nContent from "../i18n/get-content";
 import Layout from "../layouts/Layout.astro";
+const locale = geti18nContent.page("projects", Astro.url);
 ---
 
 <Layout>
-  <div class="pl-4 pr-4 grid grid-cols-5 w-full gap-4">
+  <div
+    class="grid grid-flow-row grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"
+  >
     {
-      new Array(30).fill(undefined).map(() => (
-        <div class="w-full bg-white island grid grid-rows-[auto_auto_1fr_1fr] divide-y-2 overflow-hidden aspect-3/4">
+      new Array(1).fill(undefined).map(() => (
+        <div class="w-full bg-white island grid grid-rows-[auto_auto_1fr_1fr] divide-y-2 duration-150 overflow-hidden aspect-3/4 hover:-translate-1.5 hover:shadow-[12px_12px_5px_0px_rgba(0,0,0,0.3)]">
           <div class="pt-2 pl-2">
-            <p class="font-title font-semibold text-lg">Project 1</p>
+            <p class="font-title font-semibold text-lg">
+              {locale.projects.coupleFilms.name}
+            </p>
           </div>
           <div class="bg-gray-400 w-full aspect-video" />
           <div>
-            <p class="text-sm p-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et
-              orci sed nulla sollicitudin fringilla. Ut ante eros, dignissim a.
-            </p>
+            <p class="text-sm p-2">{locale.projects.coupleFilms.description}</p>
           </div>
           <div class="flex flex-row justify-evenly items-center p-2">
             <Button content="Access" icon="External" />
-            <Button content="Source code" icon="Code" />
+            <a href={locale.projects.coupleFilms.sourceCode} target="_blank">
+              <Button content="Source code" icon="Code" />
+            </a>
           </div>
         </div>
       ))
