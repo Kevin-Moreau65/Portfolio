@@ -17,4 +17,5 @@ const i18nContent = {
   components: Record<Components, object>;
 };
 export type I18nContent = typeof i18nContent;
+
 export default i18nContent;

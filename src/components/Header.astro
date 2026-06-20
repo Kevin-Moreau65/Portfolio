@@ -1,12 +1,39 @@
 ---
-import { locales } from "astro:schema";
+import { locales, optional } from "astro:schema";
 import geti18nContent from "../i18n/get-content";
 import Button from "./Button.astro";
+import customGetLocale from "../i18n/get-locale";
+import type { LocaleKeys } from "../i18n/config/locales";
 const locale = geti18nContent.component("header", Astro.url);
+const localeKey = customGetLocale(Astro.url);
+const languages = [
+  {
+    value: "fr",
+    key: "Français",
+  },
+  {
+    value: "en",
+    key: "English",
+  },
+] satisfies { value: LocaleKeys; key: string }[];
+const getLanguageUrl = (languageKey: LocaleKeys) => {
+  const languageUrl = new URL(Astro.url);
+  const splittedPathname = languageUrl.pathname
+    .split("/")
+    .filter((s) => s !== "");
+  console.log(splittedPathname);
+  if (splittedPathname[0].endsWith(".html")) {
+    splittedPathname[0] = `${languageKey}.html`;
+  } else {
+    splittedPathname[0] = languageKey;
+  }
+  languageUrl.pathname = splittedPathname.join("/");
+  return languageUrl;
+};
 ---
 
 <nav class="w-full p-4 bg-header border-b-4 h-min">
-  <ul class="flex flex-row gap-2">
+  <ul class="flex flex-row gap-2 items-center">
     <li>
       <a href={locale.home.href}>
         <Button
@@ -23,6 +50,27 @@ const locale = geti18nContent.component("header", Astro.url);
           active={Astro.url.pathname.endsWith("projects.html")}
         /></a
       >
+    </li>
+    <li class="ml-auto">
+      <select
+        name=""
+        class="island rounded-2xl cursor-pointer p-1.5"
+        id=""
+        onchange="location.href = this.value;"
+      >
+        {
+          languages.map((language) => {
+            return (
+              <option
+                value={getLanguageUrl(language.value).pathname}
+                selected={localeKey === language.value}
+              >
+                {language.key}
+              </option>
+            );
+          })
+        }
+      </select>
     </li>
   </ul>
 </nav>
