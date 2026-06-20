@@ -1,9 +1,10 @@
 ---
-import { locales, optional } from "astro:schema";
 import geti18nContent from "../i18n/get-content";
 import Button from "./Button.astro";
 import customGetLocale from "../i18n/get-locale";
 import type { LocaleKeys } from "../i18n/config/locales";
+import { defaultLocale } from "../i18n/config/locales";
+import type { pathHasLocale } from "astro:i18n";
 const locale = geti18nContent.component("header", Astro.url);
 const localeKey = customGetLocale(Astro.url);
 const languages = [
@@ -18,16 +19,21 @@ const languages = [
 ] satisfies { value: LocaleKeys; key: string }[];
 const getLanguageUrl = (languageKey: LocaleKeys) => {
   const languageUrl = new URL(Astro.url);
-  const splittedPathname = languageUrl.pathname
-    .split("/")
-    .filter((s) => s !== "");
-  console.log(splittedPathname);
-  if (splittedPathname[0].endsWith(".html")) {
-    splittedPathname[0] = `${languageKey}.html`;
-  } else {
-    splittedPathname[0] = languageKey;
+  const currentLocaleKey = customGetLocale(Astro.url);
+  const paths = languageUrl.pathname.split("/").filter((s) => s !== "");
+  const isLocaleKeyDefault = languageKey === defaultLocale;
+  const isCurrentLocaleDefault = currentLocaleKey === defaultLocale;
+  if (isCurrentLocaleDefault && !isLocaleKeyDefault) {
+    if (paths.length === 0) {
+      paths.push(`${languageKey}.html`);
+    } else {
+      paths.unshift(languageKey);
+    }
   }
-  languageUrl.pathname = splittedPathname.join("/");
+  if (isLocaleKeyDefault && !isCurrentLocaleDefault) {
+    paths.shift();
+  }
+  languageUrl.pathname = paths.join("/");
   return languageUrl;
 };
 ---
