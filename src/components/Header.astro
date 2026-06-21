@@ -4,7 +4,6 @@ import Button from "./Button.astro";
 import customGetLocale from "../i18n/get-locale";
 import type { LocaleKeys } from "../i18n/config/locales";
 import { defaultLocale } from "../i18n/config/locales";
-import type { pathHasLocale } from "astro:i18n";
 const locale = geti18nContent.component("header", Astro.url);
 const localeKey = customGetLocale(Astro.url);
 const languages = [
@@ -23,9 +22,12 @@ const getLanguageUrl = (languageKey: LocaleKeys) => {
   const paths = languageUrl.pathname.split("/").filter((s) => s !== "");
   const isLocaleKeyDefault = languageKey === defaultLocale;
   const isCurrentLocaleDefault = currentLocaleKey === defaultLocale;
+  const isIndexPage = paths[0] === "index.html";
   if (isCurrentLocaleDefault && !isLocaleKeyDefault) {
     if (paths.length === 0) {
       paths.push(`${languageKey}.html`);
+    } else if (isIndexPage) {
+      paths[0] = `${languageKey}.html`;
     } else {
       paths.unshift(languageKey);
     }
