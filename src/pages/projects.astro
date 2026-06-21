@@ -1,10 +1,18 @@
 ---
+import type { locales } from "astro:schema";
 import Button from "../components/Button.astro";
 import geti18nContent from "../i18n/get-content";
 import Layout from "../layouts/Layout.astro";
 const locale = geti18nContent.page("projects", Astro.url);
 
-const projects = Object.values(locale.projects);
+const projects = Object.entries(locale.projects) as unknown as [
+  keyof (typeof locale)["projects"],
+  (typeof locale)["projects"]["CoupleFilms"],
+][];
+const colors = {
+  CoupleFilms: "bg-[#a79afc]",
+  PokemonSwissKnife: "bg-[#FFD97D]",
+} satisfies Record<keyof (typeof locale)["projects"], string>;
 ---
 
 <Layout>
@@ -12,9 +20,9 @@ const projects = Object.values(locale.projects);
     class="grid grid-flow-row grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"
   >
     {
-      projects.map((project) => (
+      projects.map(([key, project]) => (
         <div class="w-full bg-white island grid group grid-rows-[auto_auto_1fr_1fr] divide-y-2 duration-150 overflow-hidden aspect-3/4 hover:-translate-1.5 hover:shadow-[12px_12px_5px_0px_rgba(0,0,0,0.3)]">
-          <div class="pt-2 pl-2">
+          <div class={`pt-2 pl-2 ${colors[key]}`}>
             <p class="font-title font-semibold text-lg">{project.name}</p>
           </div>
           <div class=" w-full aspect-video overflow-hidden">

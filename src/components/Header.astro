@@ -59,6 +59,14 @@ const getLanguageUrl = (languageKey: LocaleKeys) => {
         /></a
       >
     </li>
+    <li>
+      <a href="/experiences.html">
+        <Button
+          content="Experiences"
+          active={Astro.url.pathname.endsWith("experiences.html")}
+        />
+      </a>
+    </li>
     <li class="ml-auto">
       <select
         name=""
