@@ -9,6 +9,10 @@ type i18nContent = {
     text: string;
     href: string;
   };
+  experiences: {
+    text: string;
+    href: string;
+  };
 };
 
 const localeContentHeaderComponent = {
@@ -21,15 +25,23 @@ const localeContentHeaderComponent = {
       href: "/projects.html",
       text: "Projects",
     },
+    experiences: {
+      href: "/experiences.html",
+      text: "Experiences",
+    },
   },
   fr: {
     home: {
       href: "/fr.html",
-      text: "Acceuil",
+      text: "Accueil",
     },
     projects: {
       href: "/fr/projects.html",
       text: "Projets",
+    },
+    experiences: {
+      href: "/fr/experiences.html",
+      text: "Expériences",
     },
   },
 } as const satisfies LocaleContent<i18nContent>;

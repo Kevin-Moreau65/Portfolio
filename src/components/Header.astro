@@ -40,8 +40,10 @@ const getLanguageUrl = (languageKey: LocaleKeys) => {
 };
 ---
 
-<nav class="w-full p-4 bg-header border-b-4 h-min">
-  <ul class="flex flex-row gap-2 items-center">
+<nav class="w-full h-min flex justify-center pt-2 pb-2 pr-4 pl-4">
+  <ul
+    class="flex flex-row gap-2 p-2 items-center bg-header rounded-2xl border-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] w-full max-w-450"
+  >
     <li>
       <a href={locale.home.href}>
         <Button
@@ -69,9 +71,7 @@ const getLanguageUrl = (languageKey: LocaleKeys) => {
     </li>
     <li class="ml-auto">
       <select
-        name=""
         class="island rounded-2xl cursor-pointer p-1.5"
-        id=""
         onchange="location.href = this.value;"
       >
         {
